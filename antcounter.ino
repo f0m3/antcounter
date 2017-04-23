@@ -1,27 +1,17 @@
 /*
-  Analog input, 
-
- Reads an analog input pin, maps the result to a range from 0 to 255
- and uses the result to set the pulsewidth modulation (PWM) of an output pin.
- Also prints the results to the serial monitor.
+ This sketch reads two cny70, smoothens out the signal and reacts on changes when an ant runs along. 
 
  The circuit:
  * two cny70 next to each other taped to a translucent tube between the ant nest and the feeding area.
- created 
- modified 
- by N.Mohr
-
- This example code is in the public domain.
+ created by N.Mohr
 
  */
 
-// These constants won't change.  They're used to give names
-// to the pins used:
 const int analogInPinA = A1;  // Analog input pin that the Sensor is attached to
 const int analogInPinB = A2; 
 const int LedPinA = 2;
 const int LedPinB = 3; 
-const int smoothReadings = 30;
+const int smoothReadings = 30; //this is for baseline calibration
 
 
 long A[smoothReadings],B[smoothReadings];
