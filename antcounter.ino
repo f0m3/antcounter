@@ -9,18 +9,18 @@
 
 const int analogInPinA = A1;  // Analog input pin that the Sensor is attached to
 const int analogInPinB = A2; 
-const int LedPinA = 2;
+const int LedPinA = 2;        // CNY LED pins
 const int LedPinB = 3; 
-const int smoothReadings = 30; //this is for baseline calibration
+const int smoothReadings = 30; //this is for baseline calibration (rotation)
 
 
-long A[smoothReadings],B[smoothReadings];
-int readIndexsmooth = 0;              // the index of the current reading
-int Atotal,Btotal = 0;                  // the running total
-int Aaverage, Baverage, counts, antsout, antsin, antsoutside, maxantsoutside= 0;                // the average
-int thresh = 8;  // set this one to detect an ant!
-int zeitA = 0;
-int zeitB = 0;
+long A[smoothReadings],B[smoothReadings]; // analog measure rotation
+int readIndexsmooth = 0;                  // the index of the current reading
+int Atotal,Btotal = 0;                    // the running measurement total
+int Aaverage, Baverage, counts, antsout, antsin, antsoutside, maxantsoutside= 0; 
+int thresh = 8;  // set this one to detect an ant on peak above this threshold!
+int zeitA = 0;  // time since detection on cny70 A
+int zeitB = 0;  // time since detection on cny70 B
 boolean Adetected = false; // was there a detection on sensor A
 boolean Bdetected = false;
 boolean Acooldown = true; //wait for normal
